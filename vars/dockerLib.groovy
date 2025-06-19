@@ -1,6 +1,10 @@
-def build(Map params){
+/* def build(Map params){
     echo "Building Docker image with parameters: ${params}"
     bat "docker build -f ${params.DockerfilePath} -t ${params.DockerImage} ${params.DockerArgs} ${params.DockerContext}"
+} */
+def build(Map params){
+    echo "Building Docker image with parameters: ${params}"
+    bat "docker build -f ${params.DockerfilePath} -t ${params.DockerImage} ${params.DockerContext}"
 }
 
 def push(Map params){
