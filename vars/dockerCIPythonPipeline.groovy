@@ -1,4 +1,18 @@
 def call(Map pipelineParams) {
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', 
+    daysToKeepStr: '', numToKeepStr: "15"))])
+
+def execCommand(command){
+	println "command=" + command
+	if( isUnix() ){
+	    println "execute unix command"
+		sh "${command}"
+	}
+	else{
+	    println "execute windows command"
+		bat "${command}"
+	}
+}
     /* pipeline {
         agent any
 
